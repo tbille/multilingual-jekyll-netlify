@@ -4,6 +4,9 @@
 
 This is a simple example of an implementation of a multilingual site using [Jekyll](https://jekyllrb.com/) + [netlify-cms](https://www.netlifycms.org/).
 
+![Screenshot from 2020-03-30 23-01-07](https://user-images.githubusercontent.com/2707508/77969017-9bc76c00-72e0-11ea-9bb5-9a67fc2b590e.png)
+
+
 ## How to run locally
 
 **Optional:** In a terminal (to run the cms locally):
