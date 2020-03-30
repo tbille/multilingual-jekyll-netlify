@@ -7,3 +7,11 @@
         {% endfor %}
     </ul>
 </div>
+
+<div>
+    <h1>Pages</h1>
+    <ul>
+        <li><a href="/{% if include.lang != 'en' %}{{ include.lang }}{% endif %}">Index</a>
+        <li><a href="{% if include.lang != 'en' %}/{{ include.lang }}{% endif %}/about">About</a>
+    </ul>
+</div>
