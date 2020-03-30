@@ -1,0 +1,66 @@
+backend:
+  name: git-gateway
+  branch: master
+
+local_backend:
+  url: http://localhost:8076/api/v1
+
+media_folder: "media"
+public_folder: "/media"
+
+collections:
+  - label: "Languages"
+    name: "languages"
+    folder: "_data/languages"
+    extension: "yml"
+    format: "yml"
+    create: false
+    slug: "{{code}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Language", name: "language" , widget: string}
+      - { label: "Country Code (for url)", name: "code" , widget: string}
+  - label: "Post"
+    name: "post"
+    folder: "_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{title}}"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - label: Language
+        name: language
+        widget: relation
+        collection: languages
+        searchFields: ["language"]
+        valueField: code
+        displayFields: ["language"]
+        default: "en"
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - label: "About"
+    name: "about"
+    folder: "_about"
+    slug: "{{language}}"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {
+          label: Language,
+          name: language,
+          widget: relation,
+          collection: languages,
+          searchFields: ["language"],
+          valueField: code,
+          displayFields: ["language"],
+          default: "en",
+        }
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          default: "About us",
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

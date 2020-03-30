@@ -1,0 +1,9 @@
+<div>
+    <h1>Languages</h1>
+    <ul>
+        {% for language_hash in site.data.languages %}
+        {% assign language = language_hash[1] %}
+        <li><a href="{% if language.code != 'en' %}/{{ language.code }}{% endif %}/{{ include.currentPage }}">{{ language.language }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
